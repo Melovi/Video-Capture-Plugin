@@ -1,4 +1,4 @@
-package nl.xservices.plugins.videocaptureplus;
+package de.melovi.plugins.melovivideocapture;
 
 import android.net.Uri;
 import android.webkit.MimeTypeMap;
