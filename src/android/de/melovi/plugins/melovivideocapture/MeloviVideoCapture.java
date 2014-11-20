@@ -1,4 +1,4 @@
-package nl.xservices.plugins.videocaptureplus;
+package de.melovi.plugins.melovivideocapture;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -24,13 +24,13 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-public class VideoCapturePlus extends CordovaPlugin {
+public class MeloviVideoCapture extends CordovaPlugin {
 
   private static final String VIDEO_3GPP = "video/3gpp";
   private static final String VIDEO_MP4 = "video/mp4";
 
   private static final int CAPTURE_VIDEO = 2;     // Constant for capture video
-  private static final String LOG_TAG = "VideoCapturePlus";
+  private static final String LOG_TAG = "MeloviVideoCapture";
   private static final int CAPTURE_NO_MEDIA_FILES = 3;
 
   private CallbackContext callbackContext;        // The callback context from which we were invoked.
@@ -196,7 +196,7 @@ public class VideoCapturePlus extends CordovaPlugin {
         }
 
         if (data == null) {
-          File movie = new File(getTempDirectoryPath(), "VideoCapturePlus.avi");
+          File movie = new File(getTempDirectoryPath(), "MeloviVideoCapture.avi");
           data = Uri.fromFile(movie);
         }
 

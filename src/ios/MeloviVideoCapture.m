@@ -1,4 +1,4 @@
-#import "VideoCapturePlus.h"
+#import "MeloviVideoCapture.h"
 #import <UIKit/UIDevice.h>
 
 #define kW3CMediaFormatHeight @"height"
@@ -41,12 +41,12 @@
 
 @end
 
-@implementation VideoCapturePlus
+@implementation MeloviVideoCapture
 @synthesize inUse, timer;
 
 - (id)initWithWebView:(UIWebView*)theWebView
 {
-    self = (VideoCapturePlus*)[super initWithWebView:theWebView];
+    self = (MeloviVideoCapture*)[super initWithWebView:theWebView];
     if (self) {
         self.inUse = NO;
     }

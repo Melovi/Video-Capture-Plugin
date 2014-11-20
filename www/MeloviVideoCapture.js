@@ -1,7 +1,7 @@
-function VideoCapturePlus() {
+function MeloviVideoCapture() {
 }
 
-VideoCapturePlus.prototype.captureVideo = function (successCallback, errorCallback, options) {
+MeloviVideoCapture.prototype.captureVideo = function (successCallback, errorCallback, options) {
   var win = function(pluginResult) {
     var mediaFiles = [];
     var i;
@@ -15,7 +15,7 @@ VideoCapturePlus.prototype.captureVideo = function (successCallback, errorCallba
     }
     successCallback(mediaFiles);
   };
-  cordova.exec(win, errorCallback, "VideoCapturePlus", "captureVideo", [options]);
+  cordova.exec(win, errorCallback, "MeloviVideoCapture", "captureVideo", [options]);
 };
 
 var MediaFile = function(name, fullPath, type, lastModifiedDate, size) {
@@ -30,17 +30,17 @@ MediaFile.prototype.getFormatData = function(successCallback, errorCallback) {
   if (typeof this.fullPath === "undefined" || this.fullPath === null) {
     errorCallback("invalid argument");
   } else {
-    cordova.exec(successCallback, errorCallback, "VideoCapturePlus", "getFormatData", [this.fullPath, this.type]);
+    cordova.exec(successCallback, errorCallback, "MeloviVideoCapture", "getFormatData", [this.fullPath, this.type]);
   }
 };
 
-VideoCapturePlus.install = function () {
+MeloviVideoCapture.install = function () {
   if (!window.plugins) {
     window.plugins = {};
   }
 
-  window.plugins.videocaptureplus = new VideoCapturePlus();
-  return window.plugins.videocaptureplus;
+  window.plugins.melovivideocapture = new MeloviVideoCapture();
+  return window.plugins.melovivideocapture;
 };
 
-cordova.addConstructor(VideoCapturePlus.install);
+cordova.addConstructor(MeloviVideoCapture.install);
