@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 
-public class Recorder extends CordovaPlugin {
+public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {

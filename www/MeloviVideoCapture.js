@@ -10,7 +10,7 @@ MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallb
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
-            'Recorder', // mapped to our native Java class called "Recorder"
+            'MeloviVideoCapture', // mapped to our native Java class called "Recorder"
             'recordAudio', // with this action name
             []                  //Array of arguments to pass
         ); 
