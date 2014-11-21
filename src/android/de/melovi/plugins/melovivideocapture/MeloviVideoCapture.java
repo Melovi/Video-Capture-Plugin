@@ -31,8 +31,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
          System.out.println("Aufnahme ggestartet.");
-
-              myRecorder.prepare();
               myRecorder.start();
         
 
@@ -73,7 +71,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setAudioEncodingBitRate(32000);
         myRecorder.setOutputFile(outputFile);
 
-              myRecorder.prepare();
               myRecorder.start();
 
                System.out.println("Aufnahme gestartet.");
