@@ -3,6 +3,8 @@ function MeloviVideoCapture() {
 
 MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallback, options) {
 
+  System.out.println("ich komme bis MeloviVideoCapture.prototype.recordAudio in MeloviVideoCapture.js");
+
 var win = function(pluginResult) {
     var mediaFiles = [];
     var i;
@@ -21,6 +23,8 @@ var win = function(pluginResult) {
 };
 
 var MediaFile = function(name, fullPath, type, lastModifiedDate, size) {
+
+  System.out.println("ich komme bis MediaFile in MeloviVideoCapture.js");
   this.name = name;
   this.fullPath = fullPath;
   this.type = type;
@@ -29,6 +33,7 @@ var MediaFile = function(name, fullPath, type, lastModifiedDate, size) {
 };
 
 MediaFile.prototype.getFormatData = function(successCallback, errorCallback) {
+  System.out.println("ich komme bis MediaFile.prototype.getFormatData in MeloviVideoCapture.js");
   if (typeof this.fullPath === "undefined" || this.fullPath === null) {
     errorCallback("invalid argument");
   } else {
