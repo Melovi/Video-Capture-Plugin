@@ -1,21 +1,8 @@
 function MeloviVideoCapture() {
 }
 
-MeloviVideoCapture.prototype.captureVideo = function (successCallback, errorCallback, options) {
-  var win = function(pluginResult) {
-    var mediaFiles = [];
-    var i;
-    for (i = 0; i < pluginResult.length; i++) {
-      mediaFiles.push(new MediaFile(
-          pluginResult[i].name,
-          pluginResult[i].fullPath,
-          pluginResult[i].type,
-          pluginResult[i].lastModifiedDate,
-          pluginResult[i].size));
-    }
-    successCallback(mediaFiles);
-  };
-  cordova.exec(win, errorCallback, "MeloviVideoCapture", "captureVideo", [options]);
+MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallback, options) {
+  cordova.exec(win, errorCallback, "MeloviVideoCapture", "recordAudio", []);
 };
 
  var RecordAudio = {
