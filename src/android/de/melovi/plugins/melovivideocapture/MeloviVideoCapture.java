@@ -32,20 +32,21 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-        
+               callbackContext.success("starte die aufnahme");
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
         public void onTick(long millisUntilFinished) {}
 
         public void onFinish() {
             myRecorder.stop();
-            myRecorder.release();           
+            myRecorder.release(); 
+                   callbackContext.success("stoppe countdown");          
 
         }
         };
 
         countDowntimer.start();
-
+       callbackContext.success("starte countdown");
         return true;
 
     }
@@ -71,7 +72,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-
+        callbackContext.success("starte die aufnahme in private void recordAudio");
     
         
 
@@ -80,12 +81,14 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
         public void onFinish() {
             myRecorder.stop();
-            myRecorder.release();           
+            myRecorder.release();   
+               callbackContext.success("stoppe countdown in private void recordAudio");        
 
         }
         };
 
         countDowntimer.start();
+           callbackContext.success("starte countdown in private void recordAudio");
             
 }
 
