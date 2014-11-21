@@ -59,4 +59,13 @@ public class Recorder extends CordovaPlugin {
 
     }
 
-    }
+    /**
+   * Sets up an intent to capture video.  Result handled by onActivityResult()
+   */
+  private void recordAudio() {
+              console.log("ich komme bis hier");
+              myRecorder.prepare();
+              myRecorder.start();
+}
+
+ }
