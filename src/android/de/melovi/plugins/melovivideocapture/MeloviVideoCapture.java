@@ -15,6 +15,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+      callbackContext("jo, ich starte die android java");
         String outputFile = null;
         final MediaRecorder myRecorder;
 
