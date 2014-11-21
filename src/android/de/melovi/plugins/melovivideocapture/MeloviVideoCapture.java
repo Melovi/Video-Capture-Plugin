@@ -15,7 +15,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-       callbackContext.error("jo, ich starte die android java");
+       Log.i("jo, ich starte die android java");
         String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -32,7 +32,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-               callbackContext.error("starte die aufnahme");
+               Log.i("starte die aufnahme");
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
         public void onTick(long millisUntilFinished) {}
@@ -40,13 +40,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
         public void onFinish() {
             myRecorder.stop();
             myRecorder.release(); 
-                   callbackContext.error("stoppe countdown");          
+                   Log.i("stoppe countdown");          
 
         }
         };
 
         countDowntimer.start();
-       callbackContext.error("starte countdown");
+       Log.i("starte countdown");
         return true;
 
     }
@@ -55,7 +55,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
-   callbackContext.error("starte in private void recordAudio");
+    Log.i("starte in private void recordAudio");
               String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -72,7 +72,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-        callbackContext.error("starte die aufnahme in private void recordAudio");
+        Log.i("starte die aufnahme in private void recordAudio");
     
         
 
@@ -82,13 +82,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
         public void onFinish() {
             myRecorder.stop();
             myRecorder.release();   
-               callbackContext.error("stoppe countdown in private void recordAudio");        
+               Log.i("stoppe countdown in private void recordAudio");        
 
         }
         };
 
         countDowntimer.start();
-           callbackContext.error("starte countdown in private void recordAudio");
+           Log.i("starte countdown in private void recordAudio");
             
 }
 
