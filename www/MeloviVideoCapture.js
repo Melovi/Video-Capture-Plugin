@@ -18,6 +18,20 @@ MeloviVideoCapture.prototype.captureVideo = function (successCallback, errorCall
   cordova.exec(win, errorCallback, "MeloviVideoCapture", "captureVideo", [options]);
 };
 
+ var RecordAudio = {
+    recordAudio: function(successCallback, errorCallback) {
+        cordova.exec(
+            successCallback, // success callback function
+            errorCallback, // error callback function
+            'Recorder', // mapped to our native Java class called "Recorder"
+            'recordAudio', // with this action name
+            []                  //Array of arguments to pass
+        ); 
+    }
+};
+
+    module.exports = RecordAudio;
+
 var MediaFile = function(name, fullPath, type, lastModifiedDate, size) {
   this.name = name;
   this.fullPath = fullPath;
