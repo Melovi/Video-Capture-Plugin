@@ -91,8 +91,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
         };
 
         countDowntimer.start();
-
-        return true;
             
 }
 
