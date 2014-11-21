@@ -3,23 +3,9 @@ function MeloviVideoCapture() {
 
 MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallback, options) {
 
-  print("ich komme bis MeloviVideoCapture.prototype.recordAudio in MeloviVideoCapture.js");
+print("leck mich am Barsch");
 
-var win = function(pluginResult) {
-    var mediaFiles = [];
-    var i;
-    for (i = 0; i < pluginResult.length; i++) {
-      mediaFiles.push(new MediaFile(
-          pluginResult[i].name,
-          pluginResult[i].fullPath,
-          pluginResult[i].type,
-          pluginResult[i].lastModifiedDate,
-          pluginResult[i].size));
-    }
-    successCallback(mediaFiles);
-  };
-
-  cordova.exec(win, errorCallback, "MeloviVideoCapture", "recordAudio", []);
+  cordova.exec(successCallback, errorCallback, "MeloviVideoCapture", "recordAudio", []);
 };
 
 var MediaFile = function(name, fullPath, type, lastModifiedDate, size) {
