@@ -15,7 +15,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-      callbackContext("jo, ich starte die android java");
+       callbackContext.success("jo, ich starte die android java");
         String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -31,7 +31,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setAudioEncodingBitRate(32000);
         myRecorder.setOutputFile(outputFile);
 
-         System.out.println("Aufnahme ggestartet.");
               myRecorder.start();
         
 
@@ -42,7 +41,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
             myRecorder.stop();
             myRecorder.release();           
 
-            System.out.println("Aufnahme gestoppt.");
         }
         };
 
@@ -56,7 +54,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio() {
-              print("ich komme bis hier");
+  
               String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -74,7 +72,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
               myRecorder.start();
 
-               alert("Aufnahme gestartet.");
+    
         
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
@@ -84,7 +82,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
             myRecorder.stop();
             myRecorder.release();           
 
-             print("Aufnahme gestoppt.");
         }
         };
 
