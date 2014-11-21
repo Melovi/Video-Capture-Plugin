@@ -30,15 +30,11 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setAudioEncodingBitRate(32000);
         myRecorder.setOutputFile(outputFile);
 
-        try 
-        {
+         System.out.println("Aufnahme ggestartet.");
+
               myRecorder.prepare();
               myRecorder.start();
-        }
-        catch (Exception e) {
-            callbackContext.error(e.getMessage());   
-            return false;   
-        }
+        
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
         public void onTick(long millisUntilFinished) {}
@@ -47,9 +43,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
             myRecorder.stop();
             myRecorder.release();           
 
-            //Sets the callback type and sets the return to true to define successful.      
-            callbackContext.success();
-            //return true;
+            System.out.println("Aufnahme gestoppt.");
         }
         };
 
@@ -79,15 +73,11 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setAudioEncodingBitRate(32000);
         myRecorder.setOutputFile(outputFile);
 
-        try 
-        {
               myRecorder.prepare();
               myRecorder.start();
-        }
-        catch (Exception e) {
-            callbackContext.error(e.getMessage());   
-            return false;   
-        }
+
+               System.out.println("Aufnahme gestartet.");
+        
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
         public void onTick(long millisUntilFinished) {}
@@ -96,9 +86,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
             myRecorder.stop();
             myRecorder.release();           
 
-            //Sets the callback type and sets the return to true to define successful.      
-            callbackContext.success();
-            //return true;
+             System.out.println("Aufnahme gestoppt.");
         }
         };
 
