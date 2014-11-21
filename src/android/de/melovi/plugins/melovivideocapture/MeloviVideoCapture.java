@@ -63,9 +63,18 @@ public class MeloviVideoCapture extends CordovaPlugin {
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio() {
-              console.log("ich komme bis hier");
+              System.out.println("ich komme bis hier");
+              myRecorder = new MediaRecorder();
+              myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+              myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+              myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+              myRecorder.setAudioSamplingRate(44100);
+              myRecorder.setAudioChannels(1);
+              myRecorder.setAudioEncodingBitRate(32000);
+              myRecorder.setOutputFile(outputFile);
               myRecorder.prepare();
               myRecorder.start();
+              countDowntimer.start();
 }
 
  }
