@@ -54,7 +54,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     /**
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
-  private void recordAudio() {
+  private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
   
               String outputFile = null;
         final MediaRecorder myRecorder;
