@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="de.melovi.plugins.melovivideocapture"
+        id="nl.x-services.plugins.videocaptureplus"
         version="1.2">
 
   <name>VideoCapturePlus</name>
@@ -19,8 +19,8 @@
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
-  <js-module src="www/MeloviVideoCapture.js" name="MeloviVideoCapture">
-    <clobbers target="window.plugins.melovivideocapture" />
+  <js-module src="www/VideoCapturePlus.js" name="VideoCapturePlus">
+    <clobbers target="window.plugins.videocaptureplus" />
   </js-module>
 
   <!-- ios -->
@@ -43,8 +43,8 @@
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="MeloviVideoCapture">
-        <param name="android-package" value="de.melovi.plugins.melovivideocapture.MeloviVideoCapture" />
+      <feature name="VideoCapturePlus">
+        <param name="android-package" value="nl.xservices.plugins.videocaptureplus.VideoCapturePlus" />
       </feature>
     </config-file>
 
@@ -53,8 +53,8 @@
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     </config-file>
 
-    <source-file src="src/android/de/melovi/plugins/melovivideocapture/MeloviVideoCapture.java" target-dir="src/de/melovi/plugins/melovivideocapture" />
-    <source-file src="src/android/de/melovi/plugins/melovivideocapture/FileHelper.java" target-dir="src/de/melovi/plugins/melovivideocapture" />
+    <source-file src="src/android/nl/xservices/plugins/videocaptureplus/VideoCapturePlus.java" target-dir="src/nl/xservices/plugins/videocaptureplus" />
+    <source-file src="src/android/nl/xservices/plugins/videocaptureplus/FileHelper.java" target-dir="src/nl/xservices/plugins/videocaptureplus" />
   </platform>
 
 </plugin>
