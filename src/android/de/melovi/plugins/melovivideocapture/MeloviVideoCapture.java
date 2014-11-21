@@ -4,6 +4,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import android.util.Log;
 import org.json.JSONException;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
