@@ -16,7 +16,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-       Log.w("jo, ich starte die android java");
+       Meteor.call("meteorConsole" , "Test starte Java");
+    
         String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -33,7 +34,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-               Log.w("starte die aufnahme");
+             
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
         public void onTick(long millisUntilFinished) {}
@@ -41,13 +42,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
         public void onFinish() {
             myRecorder.stop();
             myRecorder.release(); 
-                   Log.w("stoppe countdown");          
+                           
 
         }
         };
 
         countDowntimer.start();
-       Log.w("starte countdown");
+
         return true;
 
     }
@@ -56,7 +57,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
-    Log.w("starte in private void recordAudio");
+   
               String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -73,7 +74,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         myRecorder.setOutputFile(outputFile);
 
               myRecorder.start();
-        Log.w("starte die aufnahme in private void recordAudio");
+ 
     
         
 
@@ -83,13 +84,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
         public void onFinish() {
             myRecorder.stop();
             myRecorder.release();   
-               Log.w("stoppe countdown in private void recordAudio");        
+                     
 
         }
         };
 
         countDowntimer.start();
-           Log.w("starte countdown in private void recordAudio");
+          
             
 }
 
