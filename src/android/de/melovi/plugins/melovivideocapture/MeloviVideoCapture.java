@@ -55,7 +55,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio() {
-              System.out.println("ich komme bis hier");
+              print("ich komme bis hier");
               String outputFile = null;
         final MediaRecorder myRecorder;
 
@@ -73,7 +73,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
               myRecorder.start();
 
-               System.out.println("Aufnahme gestartet.");
+               alert("Aufnahme gestartet.");
         
 
         CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
@@ -83,7 +83,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
             myRecorder.stop();
             myRecorder.release();           
 
-             System.out.println("Aufnahme gestoppt.");
+             print("Aufnahme gestoppt.");
         }
         };
 
