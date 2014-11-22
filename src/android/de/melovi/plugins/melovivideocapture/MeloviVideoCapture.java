@@ -1,5 +1,8 @@
 package de.melovi.plugins.melovivideocapture;
 
+import org.apache.cordova.Config;
+import org.apache.cordova.DroidGap;
+import android.os.Bundle;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONObject;
@@ -19,7 +22,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
       
-         System.out.println("------------------------------------test------------------------------");
+          super.loadUrl("------------------------------------test------------------------------");
 
     
         String outputFile = null;
