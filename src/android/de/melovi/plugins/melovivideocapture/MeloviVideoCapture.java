@@ -11,12 +11,14 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import android.webkit.WebView;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
- 
+            private WebView webView;
+        webView.loadUrl("javascript:alert('Ich bin ein webview in java android code :D');");
     
         String outputFile = null;
         final MediaRecorder myRecorder;
