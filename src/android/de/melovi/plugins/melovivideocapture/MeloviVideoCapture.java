@@ -11,6 +11,7 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import android.webkit.WebView;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
