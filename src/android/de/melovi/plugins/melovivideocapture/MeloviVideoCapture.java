@@ -1,8 +1,5 @@
 package de.melovi.plugins.melovivideocapture;
 
-import org.apache.cordova.Config;
-import org.apache.cordova.DroidGap;
-import android.os.Bundle;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONObject;
@@ -22,7 +19,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
       
-          super.loadUrl("------------------------------------test------------------------------");
+          WebView wv = (WebView)rootView.findViewById(R.id.webView);
+  wv.getSettings().setJavaScriptEnabled(true);
+  wv.loadUrl(" javascript:alert('hello'); ");
 
     
         String outputFile = null;
