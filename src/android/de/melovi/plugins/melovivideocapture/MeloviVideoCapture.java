@@ -15,10 +15,13 @@ import android.webkit.WebView;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
+
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-        WebView webView;
-        webView.loadUrl("javascript:alert('Ich bin ein webview in java android code :D');");
+      
+         System.out.print("Hallo");
+         String WebView webView;
+         webView.loadUrl(" javascript:alert('Ich bin ein webview in java android code :D'); ");
     
         String outputFile = null;
         final MediaRecorder myRecorder;
@@ -55,7 +58,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     }
 
-    /**
+
+
+    /** "
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
