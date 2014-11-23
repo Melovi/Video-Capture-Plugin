@@ -14,95 +14,21 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import org.apache.cordova.Config;
+import org.apache.cordova.DroidGap;
+import android.os.Bundle;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
 
     @Override
-    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-      
-          var wv;
-          wv = WebView;
-          wv.loadUrl(" javascript:alert('hello'); ");
-
-    
-        String outputFile = null;
-        final MediaRecorder myRecorder;
-
-        outputFile = Environment.getExternalStorageDirectory().
-                  getAbsolutePath() + "/TestRecording.m4a";
-
-        myRecorder = new MediaRecorder();
-        myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        myRecorder.setAudioSamplingRate(44100);
-        myRecorder.setAudioChannels(1);
-        myRecorder.setAudioEncodingBitRate(32000);
-        myRecorder.setOutputFile(outputFile);
-
-              myRecorder.start();
-             
-
-        CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
-        public void onTick(long millisUntilFinished) {}
-
-        public void onFinish() {
-            myRecorder.stop();
-            myRecorder.release(); 
-                           
-
-        }
-        };
-
-        countDowntimer.start();
-
-        return true;
-
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        // Set by <content src="index.html" /> in config.xml
+        super.loadUrl("javascript:alert('hello');");
+        //super.loadUrl("file:///android_asset/www/index.html")
     }
-
-
-
-    /** "
-   * Sets up an intent to capture video.  Result handled by onActivityResult()
-   */
-  private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
-   
-              String outputFile = null;
-        final MediaRecorder myRecorder;
-
-        outputFile = Environment.getExternalStorageDirectory().
-                  getAbsolutePath() + "/TestRecording.m4a";
-
-        myRecorder = new MediaRecorder();
-        myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        myRecorder.setAudioSamplingRate(44100);
-        myRecorder.setAudioChannels(1);
-        myRecorder.setAudioEncodingBitRate(32000);
-        myRecorder.setOutputFile(outputFile);
-
-              myRecorder.start();
- 
-    
-        
-
-        CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
-        public void onTick(long millisUntilFinished) {}
-
-        public void onFinish() {
-            myRecorder.stop();
-            myRecorder.release();   
-                     
-
-        }
-        };
-
-        countDowntimer.start();
-          
-            
-}
 
  }
