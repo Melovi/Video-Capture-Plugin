@@ -19,7 +19,7 @@ import org.apache.cordova.DroidGap;
 import android.os.Bundle;
 
 
-public class MeloviVideoCapture extends CordovaPlugin {
+public class MeloviVideoCapture extends DroidGap {
 
 
     @Override
