@@ -59,7 +59,7 @@ Log.v(TAG,"Init MeloviVideoCapture");
     
         Log.i("System.out", "Hier ist eine Nachricht");
 
-        this.webView.loadUrl("javascript:alert('hello');");
+        //this.webView.loadUrl("javascript:alert('hello');");
 
      final int duration = Toast.LENGTH_SHORT;
 // Shows a toast
