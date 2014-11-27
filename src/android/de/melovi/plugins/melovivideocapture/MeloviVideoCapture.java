@@ -68,9 +68,11 @@ Log.v(TAG,"Init MeloviVideoCapture");
 Log.v(TAG,"CoolPlugin received:"+ action);
 cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
-    Toast toast = Toast.makeText("what da faq?", action, duration);
+    Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
     toast.show();
-   
+    // shows another toast
+   Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "Button is clicked", Toast.LENGTH_LONG).show();
   }
 });
 return true;
