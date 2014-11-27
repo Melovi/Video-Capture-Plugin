@@ -62,12 +62,15 @@ Log.v(TAG,"Init MeloviVideoCapture");
         //this.webView.loadUrl("javascript:alert('hello');");
 
      final int duration = Toast.LENGTH_SHORT;
+
+// shows another toast
+Toast.makeText(getApplicationContext(), "what da faq?", Toast.LENGTH_SHORT).show();     
 // Shows a toast
 Log.v(TAG,"CoolPlugin received:"+ action);
 cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
     Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
-    toast.show("Doh! I'm a Toast!");
+    toast.show();
   }
 });
 return true;
