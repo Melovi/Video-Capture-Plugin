@@ -2,7 +2,7 @@ function MeloviVideoCapture() {
 }
 
 MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallback) {
-
+  print("ich komme bis MediaFile.prototype.recordAudio in MeloviVideoCapture.js");
   cordova.exec(successCallback, errorCallback, "MeloviVideoCapture", "recordAudio", []);
 };
 

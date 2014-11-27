@@ -80,7 +80,7 @@ return true;
    * Sets up an intent to capture video.  Result handled by onActivityResult()
    */
   private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
-   
+     Log.i("System.out", "Hier ist eine Nachricht");
               String outputFile = null;
         final MediaRecorder myRecorder;
 
