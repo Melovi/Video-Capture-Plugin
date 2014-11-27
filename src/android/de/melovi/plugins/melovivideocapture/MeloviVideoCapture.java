@@ -28,7 +28,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         webView.loadUrl("javascript:alert('hello');");
 
         // used to log the text and can be seen in LogCat
-        Log.d("Log sagt hallo");
+        this.Log("Log sagt hallo");
     
         String outputFile = null;
         final MediaRecorder myRecorder;
