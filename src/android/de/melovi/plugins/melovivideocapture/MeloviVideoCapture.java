@@ -27,7 +27,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
-        Log.println(LOG_TAG, "Hier ist eine Nachricht");
+        Log.v(LOG_TAG, "Hier ist eine Nachricht");
         webView.loadUrl("javascript:console.log('hello');");
     
 
