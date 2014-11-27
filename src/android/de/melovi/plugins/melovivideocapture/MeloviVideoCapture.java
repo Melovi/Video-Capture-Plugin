@@ -89,7 +89,6 @@ Log.v(TAG,"Init MeloviVideoCapture");
                                "recordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
   }
 });
-return true;
   }
 
     private void stopRecordVideo() {
@@ -99,7 +98,6 @@ return true;
                                "stopRecordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
   }
 });
-return true;
   }
 
 
