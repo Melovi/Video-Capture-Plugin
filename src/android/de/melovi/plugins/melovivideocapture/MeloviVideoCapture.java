@@ -61,16 +61,15 @@ Log.v(TAG,"Init MeloviVideoCapture");
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
+        return true;
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
+        return true;
     }
     else {
       return false;
     }
-    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "ich komme bis hier hin", Toast.LENGTH_LONG).show();
-    return true;
 }
 
   private void buttonClicked(final String action){
