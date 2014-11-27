@@ -13,7 +13,7 @@ public static final String TAG = "Cool Plugin";
 /**
 * Constructor.
 */
-public CoolPlugin() {}
+public MeloviVideoCapture() {}
 /**
 * Sets the context of the Command. This can then be used to do things like
 * get file paths associated with the Activity.
@@ -23,7 +23,7 @@ public CoolPlugin() {}
 */
 public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 super.initialize(cordova, webView);
-Log.v(TAG,"Init CoolPlugin");
+Log.v(TAG,"Init MeloviVideoCapture");
 }
 public boolean execute(final String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 final int duration = Toast.LENGTH_SHORT;
