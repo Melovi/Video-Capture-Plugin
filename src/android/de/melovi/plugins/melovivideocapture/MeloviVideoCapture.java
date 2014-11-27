@@ -65,7 +65,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     cordova.getThreadPool().execute(new Runnable() {
     public void run() {
-        webView.loadUrl("javascript:alert('hello');");
+        this.webView.loadUrl("javascript:alert('hello');");
     }
 });
 
@@ -79,6 +79,12 @@ public class MeloviVideoCapture extends CordovaPlugin {
   }
 
   private void initializeMediaRecorder(){
+
+    cordova.getActivity().runOnUiThread(new Runnable() {
+    public void run() {
+        this.webView.loadUrl("javascript:alert('schwello');");
+    }
+});
 
   }
 
