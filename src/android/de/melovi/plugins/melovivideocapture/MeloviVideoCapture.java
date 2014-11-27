@@ -22,15 +22,13 @@ import org.apache.cordova.CordovaWebView;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-@Override
-    public void run() {
-        webView.loadUrl("javascript:alert('hello');");
-    }
-    
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
-    
+        webView.loadUrl("javascript:alert('hello');");
+
+        // used to log the text and can be seen in LogCat
+        Log.d("Log sagt hallo");
     
         String outputFile = null;
         final MediaRecorder myRecorder;
