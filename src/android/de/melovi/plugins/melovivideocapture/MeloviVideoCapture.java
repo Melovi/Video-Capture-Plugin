@@ -40,7 +40,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     /**
 * Constructor.
 */
-public CoolPlugin() {}
+public MeloviVideoCapture() {}
 /**
 * Sets the context of the Command. This can then be used to do things like
 * get file paths associated with the Activity.
@@ -62,44 +62,14 @@ Log.v(TAG,"Init MeloviVideoCapture");
         this.WebView.loadUrl("javascript:alert('hello');");
 
         final int duration = Toast.LENGTH_SHORT;
-// Shows a toast
-Log.v(TAG,"MeloviVideoCapture received:"+ action);
-cordova.getActivity().runOnUiThread(new Runnable() {
-public void run() {
-Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
-toast.show();
-}
-
-        String outputFile = null;
-        final MediaRecorder myRecorder;
-
-        outputFile = Environment.getExternalStorageDirectory().
-                  getAbsolutePath() + "/TestRecording.m4a";
-
-        myRecorder = new MediaRecorder();
-        myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        myRecorder.setAudioSamplingRate(44100);
-        myRecorder.setAudioChannels(1);
-        myRecorder.setAudioEncodingBitRate(32000);
-        myRecorder.setOutputFile(outputFile);
-
-              myRecorder.start();
-             
-
-        CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
-        public void onTick(long millisUntilFinished) {}
-
-        public void onFinish() {
-            myRecorder.stop();
-            myRecorder.release(); 
-                           
-
+        // Shows a toast
+        Log.v(TAG,"MeloviVideoCapture received:"+ action);
+        cordova.getActivity().runOnUiThread(new Runnable() {
+        public void run() {
+        Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
+            toast.show();
         }
-        };
 
-        countDowntimer.start();
 
         return true;
 
