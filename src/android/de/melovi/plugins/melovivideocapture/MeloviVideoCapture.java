@@ -68,6 +68,8 @@ Log.v(TAG,"Init MeloviVideoCapture");
     else {
       return false;
     }
+    Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "ich komme bis hier hin", Toast.LENGTH_LONG).show();
     return true;
 }
 
