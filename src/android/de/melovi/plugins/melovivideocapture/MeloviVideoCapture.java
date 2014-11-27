@@ -33,26 +33,9 @@ import org.json.JSONObject;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-
-    private static final String LOG_TAG = "MeloviVideoCapture";
-    public static final String TAG = "MeloviVideoCapture";
-
-    /**
-* Constructor.
-*/
-public MeloviVideoCapture() {}
-/**
-* Sets the context of the Command. This can then be used to do things like
-* get file paths associated with the Activity.
-*
-* @param cordova The context of the main Activity.
-* @param webView The CordovaWebView Cordova is running in.
-*/
-
-public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-super.initialize(cordova, webView);
-Log.v(TAG,"Init MeloviVideoCapture");
-}
+  public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+    super.initialize(cordova, webView);
+  }
 
     @Override
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
@@ -61,15 +44,14 @@ Log.v(TAG,"Init MeloviVideoCapture");
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
-        return true;
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
-        return true;
     }
     else {
       return false;
     }
+    return true;
 }
 
   private void buttonClicked(final String action){
