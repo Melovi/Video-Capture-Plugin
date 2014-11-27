@@ -39,16 +39,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     @Override
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-    
-
-cordova.getThreadPool().execute(new Runnable() {
-    public void run() {
-        webView.loadUrl("javascript:console.log('hello');");
-    }
-});
 
 
-    this.buttonClicked(action);
+    //this.buttonClicked(action);
     this.initializeMediaRecorder();
     
 
@@ -84,6 +77,45 @@ cordova.getThreadPool().execute(new Runnable() {
 
   private void initializeMediaRecorder(){
 
+    mCamera = getCameraInstance();
+    mMediaRecorder = new MediaRecorder();
+
+    // store the quality profile required
+    CamcorderProfile profile = CamcorderProfile.get(cameraid, CamcorderProfile.QUALITY_HIGH);
+
+    // Step 1: Unlock and set camera to MediaRecorder
+    mCamera.unlock();
+    mMediaRecorder.setCamera(mCamera);
+
+    // Step 2: Set sources
+    mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+
+    // Step 3: Set all values contained in profile except audio settings
+    mMediaRecorder.setOutputFormat(profile.fileFormat);
+    mMediaRecorder.setVideoEncoder(profile.videoCodec);
+    mMediaRecorder.setVideoEncodingBitRate(profile.videoBitRate);
+    mMediaRecorder.setVideoFrameRate(profile.videoFrameRate);
+    mMediaRecorder.setVideoSize(profile.videoFrameWidth, profile.videoFrameHeight);
+
+    // Step 4: Set output file
+    mMediaRecorder.setOutputFile(getOutputMediaFile(MEDIA_TYPE_VIDEO).toString());
+
+    // Step 5: Set the preview output
+    mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
+
+    // Step 6: Prepare configured MediaRecorder
+    try {
+        mMediaRecorder.prepare();
+    } catch (IllegalStateException e) {
+        releaseMediaRecorder();
+        return false;
+    } catch (IOException e) {
+        releaseMediaRecorder();
+        return false;
+    }
+    Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "MediaRecorder ist initialisiert", Toast.LENGTH_LONG).show();
+    return true;
 
   }
 
