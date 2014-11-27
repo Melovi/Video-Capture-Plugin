@@ -82,7 +82,7 @@ Log.v(TAG,"Init MeloviVideoCapture");
 }
 
 
-  private void recordVideo(String action, JSONArray args, final CallbackContext callbackContext) {
+  private void recordVideo() {
     cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
    Toast.makeText(cordova.getActivity().getApplicationContext(), 
@@ -92,7 +92,7 @@ Log.v(TAG,"Init MeloviVideoCapture");
 return true;
   }
 
-    private void stopRecordVideo(String action, JSONArray args, final CallbackContext callbackContext) {
+    private void stopRecordVideo() {
     cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
    Toast.makeText(cordova.getActivity().getApplicationContext(), 
