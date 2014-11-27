@@ -59,9 +59,9 @@ Log.v(TAG,"Init MeloviVideoCapture");
     
         Log.i("System.out", "Hier ist eine Nachricht");
 
-        this.WebView.loadUrl("javascript:alert('hello');");
+        this.webView.loadUrl("javascript:alert('hello');");
 
-     
+     final int duration = Toast.LENGTH_SHORT;
 // Shows a toast
 Log.v(TAG,"CoolPlugin received:"+ action);
 cordova.getActivity().runOnUiThread(new Runnable() {
