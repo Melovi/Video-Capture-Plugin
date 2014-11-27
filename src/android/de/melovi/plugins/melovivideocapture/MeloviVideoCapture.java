@@ -65,7 +65,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     cordova.getThreadPool().execute(new Runnable() {
     public void run() {
-        this.webView.loadUrl("javascript:alert('hello');");
+         CordovaWebView webview = new CordovaWebView(this);
+        webview.loadUrl("javascript:alert('hello');");
     }
 });
 
@@ -82,7 +83,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     cordova.getActivity().runOnUiThread(new Runnable() {
     public void run() {
-        this.webView.loadUrl("javascript:alert('schwello');");
+        CordovaWebView webview = new CordovaWebView(this);
+        webview.loadUrl("javascript:alert('schwello');");
     }
 });
 
