@@ -57,27 +57,50 @@ Log.v(TAG,"Init MeloviVideoCapture");
     @Override
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
-        Log.i("System.out", "Hier ist eine Nachricht");
+    if (action.equals("recordVideo")) {
+        this.recordVideo();
+    }
+    else if (action.equals("stopRecordVideo")) {
+        this.stopRecordVideo();
+    }
+    else {
+      return false;
+    }
 
+        //Log.i("System.out", "Hier ist eine Nachricht");
         //this.webView.loadUrl("javascript:alert('hello');");
 
      final int duration = Toast.LENGTH_SHORT;
 
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+        Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
+        toast.show();
+      }
+    });
+    return true;
+}
 
-// Shows a toast
-Log.v(TAG,"CoolPlugin received:"+ action);
-cordova.getActivity().runOnUiThread(new Runnable() {
+
+  private void recordVideo(String action, JSONArray args, final CallbackContext callbackContext) {
+    cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
-    Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
-    toast.show();
-    // shows another toast
    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "Button is clicked", Toast.LENGTH_LONG).show();
+                               "recordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
   }
 });
 return true;
-}
+  }
 
+    private void stopRecordVideo(String action, JSONArray args, final CallbackContext callbackContext) {
+    cordova.getActivity().runOnUiThread(new Runnable() {
+  public void run() {
+   Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "stopRecordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
+  }
+});
+return true;
+  }
 
 
 
