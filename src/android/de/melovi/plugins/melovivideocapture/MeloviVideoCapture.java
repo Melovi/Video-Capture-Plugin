@@ -41,9 +41,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
 
-cordova.getActivity().runOnUiThread(new Runnable() {
+cordova.getThreadPool().execute(new Runnable() {
     public void run() {
-        webView.loadUrl("javascript:alert('hello');");
+        webView.loadUrl("javascript:console.log('hello');");
     }
 });
 
