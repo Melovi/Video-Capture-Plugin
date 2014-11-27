@@ -22,7 +22,7 @@ import org.apache.cordova.CordovaWebView;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-    private static final String LOG_TAG = "Logtest";
+    private static final String LOG_TAG = "MeloviVideoCapture";
 
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
