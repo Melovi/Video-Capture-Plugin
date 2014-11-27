@@ -25,10 +25,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
-        webView.loadUrl("javascript:alert('hello');");
-
-        // used to log the text and can be seen in LogCat
-        this.Log("Log sagt hallo");
+        webView.loadUrl("javascript:console.log('hello');");
     
         String outputFile = null;
         final MediaRecorder myRecorder;
