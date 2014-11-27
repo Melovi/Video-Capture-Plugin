@@ -3,8 +3,6 @@ function MeloviVideoCapture() {
 
 MeloviVideoCapture.prototype.recordAudio = function (successCallback, errorCallback) {
 
-alert("leck mich am Barsch");
-
   cordova.exec(successCallback, errorCallback, "MeloviVideoCapture", "recordAudio", []);
 };
 
