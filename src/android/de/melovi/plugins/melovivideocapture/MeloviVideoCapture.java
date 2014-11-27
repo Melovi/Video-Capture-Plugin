@@ -42,7 +42,11 @@ public class MeloviVideoCapture extends CordovaPlugin {
     
     this.buttonClicked(action);
     this.initializeMediaRecorder();
-     this.webView.loadUrl("javascript:alert('hello in first');");
+    cordova.getActivity().runOnUiThread(new Runnable() {
+    public void run() {
+        this.webView.loadUrl("javascript:alert('hello');");
+    }
+});
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
@@ -67,7 +71,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
-        this.webView.loadUrl("javascript:alert('hello in getactivity in buttonclicked');");
         Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
         toast.show();
       }
