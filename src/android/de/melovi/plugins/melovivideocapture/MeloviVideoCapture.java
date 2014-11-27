@@ -57,6 +57,8 @@ Log.v(TAG,"Init MeloviVideoCapture");
     @Override
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
+    this.buttonClicked(action);
+
     if (action.equals("recordVideo")) {
         this.recordVideo();
     }
@@ -66,11 +68,15 @@ Log.v(TAG,"Init MeloviVideoCapture");
     else {
       return false;
     }
+    return true;
+}
 
-        //Log.i("System.out", "Hier ist eine Nachricht");
+  private void buttonClicked(final String action){
+
+    final int duration = Toast.LENGTH_SHORT;
+
+            //Log.i("System.out", "Hier ist eine Nachricht");
         //this.webView.loadUrl("javascript:alert('hello');");
-
-     final int duration = Toast.LENGTH_SHORT;
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -78,8 +84,8 @@ Log.v(TAG,"Init MeloviVideoCapture");
         toast.show();
       }
     });
-    return true;
-}
+
+  }
 
 
   private void recordVideo() {
