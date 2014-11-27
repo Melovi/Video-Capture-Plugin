@@ -33,6 +33,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
         Log.i("System.out", "Hier ist eine Nachricht");
 
         mWebView = new WebView(this);
+        setContentView(mWebView);
         mWebView.loadUrl("javascript:alert('hello');");
 
         String outputFile = null;
