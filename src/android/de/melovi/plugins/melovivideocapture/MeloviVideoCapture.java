@@ -18,9 +18,12 @@ import org.apache.cordova.Config;
 import org.apache.cordova.DroidGap;
 import android.os.Bundle;
 import org.apache.cordova.CordovaWebView;
+import android.webkit.WebView;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
+
+     WebView mWebView;
 
     private static final String LOG_TAG = "MeloviVideoCapture";
 
@@ -28,8 +31,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     
         Log.i("System.out", "Hier ist eine Nachricht");
-        webView.loadUrl("javascript:console.log('hello');");
-    
+        mWebView=new WebView(this);
+        mWebView.loadUrl("javascript:alert('hello');");
 
         String outputFile = null;
         final MediaRecorder myRecorder;
