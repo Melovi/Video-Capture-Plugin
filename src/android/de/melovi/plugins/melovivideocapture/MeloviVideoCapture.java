@@ -33,6 +33,9 @@ import org.json.JSONObject;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
+        private Camera mCamera;
+        private MediaRecorder mMediaRecorder=null;
+
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
   }
