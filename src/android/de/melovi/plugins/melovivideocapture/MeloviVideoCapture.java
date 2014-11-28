@@ -43,11 +43,11 @@ public class MeloviVideoCapture extends CordovaPlugin {
   }
 
     @Override
-    public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
 
 
     //this.buttonClicked(action);
-    this.initializeMediaRecorder();
+    this.initializeMediaRecorder(camera);
     
 
     if (action.equals("recordVideo")) {
@@ -80,7 +80,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
   }
 
-  private void initializeMediaRecorder(Camera camera){
+  private void initializeMediaRecorder(camera){
 
     mCamera = camera;
     mMediaRecorder = new MediaRecorder();
