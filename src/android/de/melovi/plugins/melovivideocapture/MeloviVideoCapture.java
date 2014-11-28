@@ -38,7 +38,6 @@ import android.media.CamcorderProfile;
 public class MeloviVideoCapture extends CordovaPlugin {
 
         private Camera mCamera;
-        private CameraPreview mPreview;
         private MediaRecorder mMediaRecorder=null;
         public static final int MEDIA_TYPE_VIDEO = 2;
 
@@ -111,7 +110,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     mMediaRecorder.setOutputFile(getOutputMediaFile(MEDIA_TYPE_VIDEO).toString());
 
     // Step 5: Set the preview output
-    mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
+    //mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
 
     // Step 6: Prepare configured MediaRecorder
     try {
