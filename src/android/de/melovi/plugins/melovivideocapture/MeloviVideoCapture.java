@@ -80,7 +80,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
   }
 
-  private void initializeMediaRecorder(camera){
+  private void initializeMediaRecorder(Camera camera){
 
     mCamera = camera;
     mMediaRecorder = new MediaRecorder();
