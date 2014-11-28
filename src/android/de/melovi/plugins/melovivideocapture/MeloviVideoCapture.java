@@ -37,7 +37,9 @@ import android.media.CamcorderProfile;
 public class MeloviVideoCapture extends CordovaPlugin {
 
         private Camera mCamera;
+        private CameraPreview mPreview;
         private MediaRecorder mMediaRecorder=null;
+        public static final int MEDIA_TYPE_VIDEO = 2;
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
