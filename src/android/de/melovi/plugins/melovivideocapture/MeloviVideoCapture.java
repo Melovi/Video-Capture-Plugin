@@ -29,6 +29,8 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.hardware.Camera;
+import android.hardware.Camera.PreviewCallback;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
