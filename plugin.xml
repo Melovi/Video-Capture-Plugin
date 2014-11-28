@@ -4,23 +4,18 @@
         id="de.melovi.plugins.melovivideocapture"
         version="1.2">
 
-  <name>VideoCapturePlus</name>
+  <name>Melovi Video Capture</name>
 
   <description>
-    If you want HD video recording, starting with the front camera by default, or
-    use an (transparent PNG) overlay during recording (iOS only feature)? Look no further!
-    All options of the default plugin are available as well, so you can still set a
-    duration limit etc.
+    Video recording without Sound.
   </description>
-
-  <license>MIT</license>
 
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
 
   <js-module src="www/MeloviVideoCapture.js" name="MeloviVideoCapture">
-    <clobbers target="window.plugins.melovivideocapture" />
+   <clobbers target="window.RecordAudio" />    
   </js-module>
 
   <!-- ios -->
@@ -39,7 +34,8 @@
     <framework src="MobileCoreServices.framework" />
   </platform>
 
-  <!-- android -->
+  <!-- android --> 
+
   <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
@@ -51,6 +47,7 @@
     <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.RECORD_VIDEO"/>
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     </config-file>
 
     <source-file src="src/android/de/melovi/plugins/melovivideocapture/MeloviVideoCapture.java" target-dir="src/de/melovi/plugins/melovivideocapture" />

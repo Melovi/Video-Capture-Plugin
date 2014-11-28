@@ -80,8 +80,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
     mCamera = getCameraInstance();
     mMediaRecorder = new MediaRecorder();
 
-    // store the quality profile required
-    CamcorderProfile profile = CamcorderProfile.get(cameraid, CamcorderProfile.QUALITY_HIGH);
+    // store the quality profile required // Change to resolution QUALITY_1080P
+    CamcorderProfile profile = CamcorderProfile.get(cameraid, CamcorderProfile.QUALITY_480P);
 
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
@@ -89,13 +89,14 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     // Step 2: Set sources
     mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+    mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);  // state "DataSourceConfigured"
+    mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
 
     // Step 3: Set all values contained in profile except audio settings
-    mMediaRecorder.setOutputFormat(profile.fileFormat);
-    mMediaRecorder.setVideoEncoder(profile.videoCodec);
     mMediaRecorder.setVideoEncodingBitRate(profile.videoBitRate);
     mMediaRecorder.setVideoFrameRate(profile.videoFrameRate);
     mMediaRecorder.setVideoSize(profile.videoFrameWidth, profile.videoFrameHeight);
+    mMediaRecorder.setMaxDuration(5000);
 
     // Step 4: Set output file
     mMediaRecorder.setOutputFile(getOutputMediaFile(MEDIA_TYPE_VIDEO).toString());
@@ -115,25 +116,50 @@ public class MeloviVideoCapture extends CordovaPlugin {
     }
     Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "MediaRecorder ist initialisiert", Toast.LENGTH_LONG).show();
+    recordVideo();
     return true;
 
   }
 
 
   private void recordVideo() {
+
+    mMediaRecorder.start();
+
+    CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
+        public void onTick(long millisUntilFinished) {}
+
+        public void onFinish() {
+              
+              stopRecordVideo(); 
+
+
+        }
+        };
+
+        countDowntimer.start();
+
     cordova.getActivity().runOnUiThread(new Runnable() {
+
   public void run() {
    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "recordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
+                               "recordVideo gestartet", Toast.LENGTH_LONG).show();
   }
 });
   }
 
     private void stopRecordVideo() {
+
+   if (recorder != null) {
+      mMediaRecorder.stop();
+      mMediaRecorder.reset();
+      mMediaRecorder.release();
+   }
+
     cordova.getActivity().runOnUiThread(new Runnable() {
   public void run() {
    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "stopRecordVideo FUNktion ist voll am start, alter", Toast.LENGTH_LONG).show();
+                               "stopRecordVideo gestoppt", Toast.LENGTH_LONG).show();
   }
 });
   }
