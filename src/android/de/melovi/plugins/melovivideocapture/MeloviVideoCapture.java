@@ -87,7 +87,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     mMediaRecorder = new MediaRecorder();
 
     // store the quality profile required // Change to resolution QUALITY_1080P
-    CamcorderProfile profile = CamcorderProfile.get(int cameraid, CamcorderProfile.QUALITY_480P);
+    CamcorderProfile profile = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
 
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
