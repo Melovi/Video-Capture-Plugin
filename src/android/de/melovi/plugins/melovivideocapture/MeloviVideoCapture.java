@@ -123,16 +123,12 @@ public class MeloviVideoCapture extends CordovaPlugin {
         mMediaRecorder.prepare();
     } catch (IllegalStateException e) {
         releaseMediaRecorder();
-        return false;
     } catch (IOException e) {
         releaseMediaRecorder();
-        return false;
     }
     Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "MediaRecorder ist initialisiert", Toast.LENGTH_LONG).show();
     recordVideo();
-    return true;
-
   }
 
    /** Create a file Uri for saving an image or video */
