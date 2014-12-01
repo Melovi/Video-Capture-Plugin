@@ -34,6 +34,9 @@ import android.hardware.Camera.PreviewCallback;
 import android.media.CamcorderProfile;
 import android.media.CamcorderProfile;
 import android.net.Uri;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
