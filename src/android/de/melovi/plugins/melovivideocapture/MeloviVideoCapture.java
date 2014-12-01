@@ -214,6 +214,16 @@ public class MeloviVideoCapture extends CordovaPlugin {
 });
   }
 
+  private void releaseMediaRecorder(){
+        if (mMediaRecorder != null) {
+            mMediaRecorder.reset();   // clear recorder configuration
+            mMediaRecorder.release(); // release the recorder object
+            mMediaRecorder = null;
+            mCamera.setPreviewCallback(null);
+            mCamera.lock();           // lock camera for later use
+        }
+    }
+
 
 
     /** "
