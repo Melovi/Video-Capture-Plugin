@@ -37,12 +37,14 @@ import android.net.Uri;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
         private Camera mCamera;
         private MediaRecorder mMediaRecorder=null;
+        public static final int MEDIA_TYPE_IMAGE = 1;
         public static final int MEDIA_TYPE_VIDEO = 2;
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -200,7 +202,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     private void stopRecordVideo() {
 
-   if (recorder != null) {
+   if (mMediaRecorder != null) {
       mMediaRecorder.stop();
       mMediaRecorder.reset();
       mMediaRecorder.release();
