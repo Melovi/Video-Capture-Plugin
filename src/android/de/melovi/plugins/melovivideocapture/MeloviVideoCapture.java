@@ -51,13 +51,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
         public static final int MEDIA_TYPE_IMAGE = 1;
         public static final int MEDIA_TYPE_VIDEO = 2;
 
+
+    @Override
+    public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
+
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
   }
-
-    
-    public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
-
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
@@ -68,9 +68,15 @@ public class MeloviVideoCapture extends CordovaPlugin {
     this.initializeMediaRecorder(camera);
     
 
+    if (action.equals("recordVideo")) {
         this.recordVideo();
-
- 
+    }
+    else if (action.equals("stopRecordVideo")) {
+        this.stopRecordVideo();
+    }
+    else {
+      return false;
+    }
     return true;
 }
     
