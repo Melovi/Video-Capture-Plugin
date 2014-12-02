@@ -44,17 +44,26 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
+    private Camera mCamera;
+    private MediaRecorder mMediaRecorder=null;
+    public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_VIDEO = 2;
 
+  private CallbackContext callbackContext;        // The callback context from which we were invoked.
+  private long limit;                             // the number of pics/vids/clips to take
+  private int duration;                           // optional max duration of video recording in seconds
+  private boolean highquality;                    // optional setting for controlling the video quality
+  private boolean frontcamera;                    // optional setting for starting video capture with the frontcamera
+  private JSONArray results;                      // The array of results to be returned to the user
 
-        private Camera mCamera;
-        private MediaRecorder mMediaRecorder=null;
-        public static final int MEDIA_TYPE_IMAGE = 1;
-        public static final int MEDIA_TYPE_VIDEO = 2;
-
-
-    @Override
-    public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
-
+  @Override
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext, Camera camera) throws JSONException {
+    this.callbackContext = callbackContext;
+    this.limit = 1;
+    this.duration = 0;
+    this.highquality = false;
+    this.frontcamera = false;
+    this.results = new JSONArray();
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -62,21 +71,28 @@ public class MeloviVideoCapture extends CordovaPlugin {
                                "Java wird verwendet. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
       }
     });
-    //this.buttonClicked(action);
-    this.initializeMediaRecorder(camera);
-    
+
+    JSONObject options = args.optJSONObject(0);
+    if (options != null) {
+      limit = options.optLong("limit", 1);
+      duration = options.optInt("duration", 0);
+      highquality = options.optBoolean("highquality", false);
+      frontcamera = options.optBoolean("frontcamera", false);
+    }
+
+     this.initializeMediaRecorder(camera);
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
-    }
-    else {
+    } else {
       return false;
     }
     return true;
-}
+  }
+
     
   // Diese Funktion gibt einfach nur ein Toast auf dem Gerät aus, welcher Knopf gedrückt wurde.
   private void buttonClicked(final String action){
