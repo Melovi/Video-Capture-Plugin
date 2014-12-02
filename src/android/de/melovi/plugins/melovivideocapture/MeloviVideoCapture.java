@@ -68,16 +68,16 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
   private void initializeMediaRecorder(Camera mCamera){
 
+
+
+    mCamera = mCamera;
+    mMediaRecorder = new MediaRecorder();
  cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "MediaRecorder wurde noch nicht ganz initialisiert.", Toast.LENGTH_LONG).show();
       }
     });
-
-    mCamera = mCamera;
-    mMediaRecorder = new MediaRecorder();
-
     // store the quality profile required // Change to resolution QUALITY_1080P
     CamcorderProfile profile = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
 
@@ -254,5 +254,20 @@ public class MeloviVideoCapture extends CordovaPlugin {
           
             
 }
+
+  private JSONObject createErrorObject(int code, String message) {
+    JSONObject obj = new JSONObject();
+    try {
+      obj.put("code", code);
+      obj.put("message", message);
+    } catch (JSONException ignore) {
+      // This will never happen
+    }
+    return obj;
+  }
+
+  public void fail(JSONObject err) {
+    this.callbackContext.error(err);
+  }
 
  }
