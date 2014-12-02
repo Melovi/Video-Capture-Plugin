@@ -175,20 +175,6 @@ cordova.getActivity().runOnUiThread(new Runnable() {
 
     mMediaRecorder.start();
 
-     CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
-         public void onTick(long millisUntilFinished) {}
-         public void onFinish() {    
-               mMediaRecorder.stop();
-               cordova.getActivity().runOnUiThread(new Runnable() {
-  public void run() {
-   Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "stopRecordVideo gestoppt", Toast.LENGTH_LONG).show();
-  }
-});
-         }
-         };
-         countDowntimer.start();
-
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
         Toast.makeText(cordova.getActivity().getApplicationContext(), "recordVideo gestartet", Toast.LENGTH_LONG).show();
