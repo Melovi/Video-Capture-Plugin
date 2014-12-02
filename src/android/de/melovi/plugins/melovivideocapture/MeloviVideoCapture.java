@@ -114,15 +114,21 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     //mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
 
     // Step 6: Prepare configured MediaRecorder
-    
-    mMediaRecorder.prepare();
-    mMediaRecorder.start();
-     
-     cordova.getActivity().runOnUiThread(new Runnable() {
+    try {
+        mMediaRecorder.prepare();
+        cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
-        Toast.makeText(cordova.getActivity().getApplicationContext(), "recordVideo gestartet", Toast.LENGTH_LONG).show();
+        Toast.makeText(cordova.getActivity().getApplicationContext(), "recordVideo prepared", Toast.LENGTH_LONG).show();
       }
     });
+    } catch (IllegalStateException e) {
+        releaseMediaRecorder();
+    } catch (IOException e) {
+        releaseMediaRecorder();
+    }
+    mMediaRecorder.start();
+     
+     
 
     this.recordVideo();
   }
