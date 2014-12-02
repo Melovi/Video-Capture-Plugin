@@ -59,7 +59,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext, Camera camera) throws JSONException {
     this.callbackContext = callbackContext;
-    this.camera = mCamera
+    this.camera = mCamera;
     this.limit = 1;
     this.duration = 0;
     this.highquality = false;
