@@ -59,7 +59,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext, Camera mCamera) throws JSONException {
     this.callbackContext = callbackContext;
-    this.camera = mCamera;
+    this.mCamera = mCamera;
     this.limit = 1;
     this.duration = 0;
     this.highquality = false;
@@ -113,7 +113,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
   }
 
-  private void initializeMediaRecorder(Camera camera){
+  private void initializeMediaRecorder(Camera mCamera){
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -122,7 +122,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
       }
     });
 
-    mCamera = camera;
+    mCamera = mCamera;
     mMediaRecorder = new MediaRecorder();
 
     // store the quality profile required // Change to resolution QUALITY_1080P
