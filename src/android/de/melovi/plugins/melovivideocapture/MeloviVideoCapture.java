@@ -44,7 +44,7 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-    private Camera mCamera;
+    private Camera camera;
     private MediaRecorder mMediaRecorder=null;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
@@ -57,8 +57,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
   private JSONArray results;                      // The array of results to be returned to the user
 
   @Override
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext, Camera camera) throws JSONException {
     this.callbackContext = callbackContext;
+    this.camera = mCamera
     this.limit = 1;
     this.duration = 0;
     this.highquality = false;
