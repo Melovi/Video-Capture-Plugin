@@ -48,18 +48,16 @@ public class MeloviVideoCapture extends CordovaPlugin {
     private MediaRecorder mMediaRecorder=null;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
+    private JSONArray results; 
+
+    
 
 
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-   cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-         Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "MeloviVideoCapture fährt steil.", Toast.LENGTH_LONG).show();
-      }
-    });
+     this.results = new JSONArray();
 
     if (action.equals("recordVideo")) {
         this.initializeMediaRecorder(mCamera);
@@ -92,13 +90,6 @@ cordova.getActivity().runOnUiThread(new Runnable() {
 
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
-
-    cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-         Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "camera unblock nervt gewaltig.", Toast.LENGTH_LONG).show();
-      }
-    });
 
     mMediaRecorder.setCamera(mCamera);
 
@@ -175,19 +166,20 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
-         "recordVideo in void recordVideo. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+         "recordVideo in void recordVideo.", Toast.LENGTH_LONG).show();
       }
     });
 
     mMediaRecorder.start();
 
-    // CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
-    //     public void onTick(long millisUntilFinished) {}
-    //     public void onFinish() {    
-    //           stopRecordVideo(); 
-    //     }
-    //     };
-    //     countDowntimer.start();
+     CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
+         public void onTick(long millisUntilFinished) {}
+         public void onFinish() {    
+               stopRecordVideo(); 
+               
+         }
+         };
+         countDowntimer.start();
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -210,6 +202,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
                                "stopRecordVideo gestoppt", Toast.LENGTH_LONG).show();
   }
 });
+    this.callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, results));
   }
 
   private void releaseMediaRecorder(){
