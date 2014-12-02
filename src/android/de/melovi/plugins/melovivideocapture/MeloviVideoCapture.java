@@ -62,7 +62,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     });
 
     if (action.equals("recordVideo")) {
-        this.initializeMediaRecorder();
+        this.initializeMediaRecorder(mCamera);
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
@@ -73,7 +73,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     return true;
   }
 
-  private void initializeMediaRecorder(){
+  private void initializeMediaRecorder(Camera camera){
 
 cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -81,9 +81,10 @@ cordova.getActivity().runOnUiThread(new Runnable() {
                                "MediaRecorder wird initialisiert.", Toast.LENGTH_LONG).show();
       }
     });
-
+    mCamera = camera;
     // Create an instance of Camera
     mCamera = getCameraInstance();
+
     mMediaRecorder = new MediaRecorder();
  
     // store the quality profile required // Change to resolution QUALITY_1080P
