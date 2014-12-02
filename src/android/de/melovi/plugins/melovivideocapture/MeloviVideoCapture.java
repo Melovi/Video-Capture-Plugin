@@ -81,7 +81,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
       frontcamera = options.optBoolean("frontcamera", false);
     }
 
-     this.initializeMediaRecorder(camera);
+     this.initializeMediaRecorder(mCamera);
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
