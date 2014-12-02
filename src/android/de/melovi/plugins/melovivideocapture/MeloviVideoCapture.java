@@ -44,10 +44,7 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-    private Camera mCamera;
-    private MediaRecorder mMediaRecorder=null;
-    public static final int MEDIA_TYPE_IMAGE = 1;
-    public static final int MEDIA_TYPE_VIDEO = 2;
+
 
   private CallbackContext callbackContext;        // The callback context from which we were invoked.
   private long limit;                             // the number of pics/vids/clips to take
