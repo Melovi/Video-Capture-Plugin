@@ -114,14 +114,8 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     //mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
 
     // Step 6: Prepare configured MediaRecorder
-    try {
-        mMediaRecorder.prepare();
-    } catch (IllegalStateException e) {
-        releaseMediaRecorder();
-    } catch (IOException e) {
-        releaseMediaRecorder();
-    }
-mMediaRecorder.prepare();
+    
+    mMediaRecorder.prepare();
     mMediaRecorder.start();
      
      cordova.getActivity().runOnUiThread(new Runnable() {
