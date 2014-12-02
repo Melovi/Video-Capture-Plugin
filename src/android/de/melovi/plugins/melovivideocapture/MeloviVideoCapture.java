@@ -75,14 +75,15 @@ public class MeloviVideoCapture extends CordovaPlugin {
  
     // store the quality profile required // Change to resolution QUALITY_1080P
     CamcorderProfile profile = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
-cordova.getActivity().runOnUiThread(new Runnable() {
+
+    // Step 1: Unlock and set camera to MediaRecorder
+    mCamera.unlock();
+    cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "MediaRecorder wurde noch nicht ganz initialisiert.3", Toast.LENGTH_LONG).show();
       }
     });
-    // Step 1: Unlock and set camera to MediaRecorder
-    mCamera.unlock();
     mMediaRecorder.setCamera(mCamera);
 
     // Step 2: Set sources
