@@ -121,7 +121,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     } catch (IOException e) {
         releaseMediaRecorder();
     }
-
+mMediaRecorder.prepare();
     mMediaRecorder.start();
      
      cordova.getActivity().runOnUiThread(new Runnable() {
