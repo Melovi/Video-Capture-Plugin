@@ -54,37 +54,22 @@ public class MeloviVideoCapture extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
+    this.initializeMediaRecorder(mCamera);
 
-     this.initializeMediaRecorder(mCamera);
+    Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               action, Toast.LENGTH_LONG).show();
+    recordVideo();
 
     if (action.equals("recordVideo")) {
         this.recordVideo();
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
-    } else {
+    } 
+    else {
       return false;
     }
     return true;
-  }
-
-    
-  // Diese Funktion gibt einfach nur ein Toast auf dem Gerät aus, welcher Knopf gedrückt wurde.
-  private void buttonClicked(final String action){
-
-    final int duration = Toast.LENGTH_SHORT;
-
-        //Log.i("System.out", "Hier ist eine Nachricht");
-        //this.webView.loadUrl("javascript:alert('hello');");
-
-
-    cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-        Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
-        toast.show();
-      }
-    });
-
   }
 
   private void initializeMediaRecorder(Camera mCamera){
@@ -176,9 +161,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
 
   private void recordVideo() {
-
-    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "recordVideo in void recordVideo gestartet", Toast.LENGTH_LONG).show();
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
