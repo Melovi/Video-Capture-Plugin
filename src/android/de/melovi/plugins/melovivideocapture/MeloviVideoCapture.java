@@ -54,10 +54,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-    this.initializeMediaRecorder(mCamera);
-
     if (action.equals("recordVideo")) {
-        this.recordVideo();
+        this.initializeMediaRecorder(mCamera);
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
@@ -112,6 +110,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     } catch (IOException e) {
         releaseMediaRecorder();
     }
+    recordVideo();
   }
 
    /** Create a file Uri for saving an image or video */
