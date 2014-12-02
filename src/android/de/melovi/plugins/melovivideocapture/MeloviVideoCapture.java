@@ -44,15 +44,7 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-    Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "Java wird verwendet.", Toast.LENGTH_LONG).show();
 
-    cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-         Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "Java wird verwendet. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
-      }
-    });
 
         private Camera mCamera;
         private MediaRecorder mMediaRecorder=null;
@@ -66,7 +58,12 @@ public class MeloviVideoCapture extends CordovaPlugin {
     
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
 
-
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "Java wird verwendet. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+      }
+    });
     //this.buttonClicked(action);
     this.initializeMediaRecorder(camera);
     
