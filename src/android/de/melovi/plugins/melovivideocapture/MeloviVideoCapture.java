@@ -73,7 +73,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     return true;
   }
 
-  private void initializeMediaRecorder(Camera camera){
+  private void initializeMediaRecorder(){
 
 cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -82,7 +82,8 @@ cordova.getActivity().runOnUiThread(new Runnable() {
       }
     });
 
-    mCamera = camera;
+    // Create an instance of Camera
+    mCamera = getCameraInstance();
     mMediaRecorder = new MediaRecorder();
  
     // store the quality profile required // Change to resolution QUALITY_1080P
