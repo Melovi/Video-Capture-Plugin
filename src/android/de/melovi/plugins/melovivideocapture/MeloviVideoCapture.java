@@ -121,7 +121,15 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     } catch (IOException e) {
         releaseMediaRecorder();
     }
+
+    mMediaRecorder.start();
      
+     cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+        Toast.makeText(cordova.getActivity().getApplicationContext(), "recordVideo gestartet", Toast.LENGTH_LONG).show();
+      }
+    });
+
     this.recordVideo();
   }
 
@@ -173,7 +181,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
       }
     });
 
-    mMediaRecorder.start();
+    
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
