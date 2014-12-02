@@ -50,6 +50,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
     private JSONArray results; 
+    private CallbackContext callbackContext; 
 
     
 
@@ -59,6 +60,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
      this.results = new JSONArray();
+     this.callbackContext = callbackContext;
 
     if (action.equals("recordVideo")) {
         this.initializeMediaRecorder(mCamera);
