@@ -40,6 +40,7 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.IOException;
+import org.apache.cordova.PluginResult;
 
 
 public class MeloviVideoCapture extends CordovaPlugin {
