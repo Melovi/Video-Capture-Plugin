@@ -178,7 +178,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
      CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
          public void onTick(long millisUntilFinished) {}
          public void onFinish() {    
-               stopRecordVideo(); 
+               this.stopRecordVideo(); 
                
          }
          };
