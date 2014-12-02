@@ -2,7 +2,6 @@ function MeloviVideoCapture() {
 }
 
 MeloviVideoCapture.prototype.recordVideo = function (successCallback, errorCallback) {
-  alert("Ich komme bis in die MeloviVideoCapture.js");
   var win = function(pluginResult) {
     var mediaFiles = [];
     var i;
@@ -20,7 +19,6 @@ MeloviVideoCapture.prototype.recordVideo = function (successCallback, errorCallb
 };
 
 MeloviVideoCapture.prototype.stopRecordVideo = function (successCallback, errorCallback) {
-  alert("Ich komme bis in die MeloviVideoCapture.js");
   cordova.exec(successCallback, errorCallback, "MeloviVideoCapture", "stopRecordVideo", []);
 };
 

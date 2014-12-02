@@ -68,15 +68,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
     this.initializeMediaRecorder(camera);
     
 
-    if (action.equals("recordVideo")) {
         this.recordVideo();
-    }
-    else if (action.equals("stopRecordVideo")) {
-        this.stopRecordVideo();
-    }
-    else {
-      return false;
-    }
+
+ 
     return true;
 }
     
