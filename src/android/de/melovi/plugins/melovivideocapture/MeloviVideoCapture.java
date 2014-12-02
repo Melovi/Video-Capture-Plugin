@@ -55,9 +55,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     @Override
     public boolean execute(final String action, JSONArray args, final CallbackContext callbackContext, Camera camera) throws JSONException {
 
-  public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-    super.initialize(cordova, webView);
-  }
+
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
