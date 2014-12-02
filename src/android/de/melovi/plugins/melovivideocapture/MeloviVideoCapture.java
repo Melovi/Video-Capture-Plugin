@@ -72,15 +72,15 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     mCamera = mCamera;
     mMediaRecorder = new MediaRecorder();
- cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-         Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "MediaRecorder wurde noch nicht ganz initialisiert.", Toast.LENGTH_LONG).show();
-      }
-    });
+ 
     // store the quality profile required // Change to resolution QUALITY_1080P
     CamcorderProfile profile = CamcorderProfile.get(CamcorderProfile.QUALITY_480P);
-
+cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "MediaRecorder wurde noch nicht ganz initialisiert.2", Toast.LENGTH_LONG).show();
+      }
+    });
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
     mMediaRecorder.setCamera(mCamera);
@@ -158,32 +158,25 @@ public class MeloviVideoCapture extends CordovaPlugin {
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "recordVideo in void recordVideo. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+         "recordVideo in void recordVideo. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
       }
     });
 
     mMediaRecorder.start();
 
-    CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
-        public void onTick(long millisUntilFinished) {}
-
-        public void onFinish() {
-              
-              stopRecordVideo(); 
-
-
-        }
-        };
-
-        countDowntimer.start();
+    // CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
+    //     public void onTick(long millisUntilFinished) {}
+    //     public void onFinish() {    
+    //           stopRecordVideo(); 
+    //     }
+    //     };
+    //     countDowntimer.start();
 
     cordova.getActivity().runOnUiThread(new Runnable() {
-
-  public void run() {
-   Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "recordVideo gestartet", Toast.LENGTH_LONG).show();
-  }
-});
+      public void run() {
+        Toast.makeText(cordova.getActivity().getApplicationContext(), "recordVideo gestartet", Toast.LENGTH_LONG).show();
+      }
+    });
   }
 
     private void stopRecordVideo() {
@@ -211,49 +204,6 @@ public class MeloviVideoCapture extends CordovaPlugin {
             mCamera.lock();           // lock camera for later use
         }
     }
-
-
-
-    /** "
-   * Sets up an intent to capture video.  Result handled by onActivityResult()
-   */
-  private void recordAudio(String action, JSONArray args, final CallbackContext callbackContext) {
-     Log.i("System.out", "Hier ist eine Nachricht");
-              String outputFile = null;
-        final MediaRecorder myRecorder;
-
-        outputFile = Environment.getExternalStorageDirectory().
-                  getAbsolutePath() + "/TestRecording.m4a";
-
-        myRecorder = new MediaRecorder();
-        myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        myRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
-        myRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        myRecorder.setAudioSamplingRate(44100);
-        myRecorder.setAudioChannels(1);
-        myRecorder.setAudioEncodingBitRate(32000);
-        myRecorder.setOutputFile(outputFile);
-
-              myRecorder.start();
- 
-    
-        
-
-        CountDownTimer countDowntimer = new CountDownTimer(7000, 1000) {
-        public void onTick(long millisUntilFinished) {}
-
-        public void onFinish() {
-            myRecorder.stop();
-            myRecorder.release();   
-                     
-
-        }
-        };
-
-        countDowntimer.start();
-          
-            
-}
 
   private JSONObject createErrorObject(int code, String message) {
     JSONObject obj = new JSONObject();
