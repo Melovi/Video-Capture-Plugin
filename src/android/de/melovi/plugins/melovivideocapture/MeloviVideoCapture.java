@@ -44,7 +44,7 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
-    private Camera mCamera;
+    private Camera camera;
     private MediaRecorder mMediaRecorder=null;
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
@@ -62,7 +62,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     });
 
     if (action.equals("recordVideo")) {
-        this.initializeMediaRecorder(mCamera);
+        this.initializeMediaRecorder();
     }
     else if (action.equals("stopRecordVideo")) {
         this.stopRecordVideo();
@@ -73,7 +73,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     return true;
   }
 
-  private void initializeMediaRecorder(Camera mCamera){
+  private void initializeMediaRecorder(Camera camera){
 
 cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
@@ -82,7 +82,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
       }
     });
 
-    mCamera = mCamera;
+    mCamera = camera;
     mMediaRecorder = new MediaRecorder();
  
     // store the quality profile required // Change to resolution QUALITY_1080P
