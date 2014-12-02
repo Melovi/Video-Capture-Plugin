@@ -44,6 +44,16 @@ import java.io.IOException;
 
 public class MeloviVideoCapture extends CordovaPlugin {
 
+    Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "Java wird verwendet.", Toast.LENGTH_LONG).show();
+
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "Java wird verwendet. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+      }
+    });
+
         private Camera mCamera;
         private MediaRecorder mMediaRecorder=null;
         public static final int MEDIA_TYPE_IMAGE = 1;
@@ -92,6 +102,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
   }
 
   private void initializeMediaRecorder(Camera camera){
+
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "MediaRecorder wird initialisiert. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+      }
+    });
 
     mCamera = camera;
     mMediaRecorder = new MediaRecorder();
@@ -176,6 +193,13 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "recordVideo in void recordVideo gestartet", Toast.LENGTH_LONG).show();
+
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "recordVideo in void recordVideo. Toast wird nur in run ausgegeben.", Toast.LENGTH_LONG).show();
+      }
+    });
 
     mMediaRecorder.start();
 
