@@ -174,6 +174,9 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
   private void recordVideo() {
 
+    Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "recordVideo in void recordVideo gestartet", Toast.LENGTH_LONG).show();
+
     mMediaRecorder.start();
 
     CountDownTimer countDowntimer = new CountDownTimer(5000, 1000) {
