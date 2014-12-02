@@ -57,9 +57,8 @@ public class MeloviVideoCapture extends CordovaPlugin {
   private JSONArray results;                      // The array of results to be returned to the user
 
   @Override
-  public boolean execute(String action, JSONArray args, CallbackContext callbackContext, Camera mCamera) throws JSONException {
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     this.callbackContext = callbackContext;
-    this.mCamera = mCamera;
     this.limit = 1;
     this.duration = 0;
     this.highquality = false;
