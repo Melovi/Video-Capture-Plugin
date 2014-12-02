@@ -93,6 +93,13 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
 
+    cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "camera unblock nervt gewaltig.", Toast.LENGTH_LONG).show();
+      }
+    });
+
     mMediaRecorder.setCamera(mCamera);
 
     // Step 2: Set sources
@@ -215,6 +222,23 @@ cordova.getActivity().runOnUiThread(new Runnable() {
         }
     }
 
+     /** A safe way to get an instance of the Camera object. */
+    public static Camera getCameraInstance(){
+        Camera c = null;
+        try {
+        c = Camera.open(); // attempt to get a Camera instance
+        if (c != null){
+            Camera.Parameters params = c.getParameters();
+            c.setParameters(params);
+        }
+    }
+    catch (Exception e){
+        Log.d("DEBUG", "Camera did not open");
+        // Camera is not available (in use or does not exist)
+    }
+        return c; // returns null if camera is unavailable
+    }
+
   private JSONObject createErrorObject(int code, String message) {
     JSONObject obj = new JSONObject();
     try {
@@ -225,5 +249,7 @@ cordova.getActivity().runOnUiThread(new Runnable() {
     }
     return obj;
   }
+
+
 
  }
