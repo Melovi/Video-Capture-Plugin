@@ -266,8 +266,4 @@ public class MeloviVideoCapture extends CordovaPlugin {
     return obj;
   }
 
-  public void fail(JSONObject err) {
-    this.callbackContext.error(err);
-  }
-
  }
