@@ -79,17 +79,17 @@ public class MeloviVideoCapture extends CordovaPlugin {
     // Step 1: Unlock and set camera to MediaRecorder
     mCamera.unlock();
     mMediaRecorder.setCamera(mCamera);
-
-    // Step 2: Set sources
-    mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-    mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);  // state "DataSourceConfigured"
-    mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
 cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
          Toast.makeText(cordova.getActivity().getApplicationContext(), 
                                "MediaRecorder wurde noch nicht ganz initialisiert.3", Toast.LENGTH_LONG).show();
       }
     });
+    // Step 2: Set sources
+    mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+    mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);  // state "DataSourceConfigured"
+    mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+
     // Step 3: Set all values contained in profile except audio settings
     mMediaRecorder.setVideoEncodingBitRate(profile.videoBitRate);
     mMediaRecorder.setVideoFrameRate(profile.videoFrameRate);
