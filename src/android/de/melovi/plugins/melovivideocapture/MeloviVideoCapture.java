@@ -101,7 +101,12 @@ public class MeloviVideoCapture extends CordovaPlugin {
 
     // Step 5: Set the preview output
     //mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
-
+ cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+         Toast.makeText(cordova.getActivity().getApplicationContext(), 
+                               "MediaRecorder wurde noch nicht ganz initialisiert. Es wird nun an try übergeben.", Toast.LENGTH_LONG).show();
+      }
+    });
     // Step 6: Prepare configured MediaRecorder
     try {
         mMediaRecorder.prepare();
@@ -110,12 +115,7 @@ public class MeloviVideoCapture extends CordovaPlugin {
     } catch (IOException e) {
         releaseMediaRecorder();
     }
-      cordova.getActivity().runOnUiThread(new Runnable() {
-      public void run() {
-         Toast.makeText(cordova.getActivity().getApplicationContext(), 
-                               "MediaRecorder wurde initialisiert. Es wird nun an recordVideo übergeben.", Toast.LENGTH_LONG).show();
-      }
-    });
+     
     recordVideo();
   }
 
